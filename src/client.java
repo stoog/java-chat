@@ -1,5 +1,5 @@
 import java.net.*;
-import java.util.*; //Bib für Eingabe über Konsole & Vector
+import java.util.*; //Bib für Eingabe über Konsole & Vektor
 
 //import java.util.Vector;
 import java.io.*;
@@ -30,13 +30,13 @@ public class client implements Runnable
 			System.out.println("Bitte geben Sie eine IP-Adresse ein:");
 			ip = in.nextLine();
 			// TODO Die Variable input muss auf Richtigkeit überprüft werden!
-			// TODO vielleicht Abfrage weg lassen und nur mit Startoptionen arbeiten?
+			// TODO Vielleicht Abfrage weglassen und nur mit Startoptionen arbeiten?
 		}
 		System.out.println("Bitte geben Sie Ihren Nickname ein:");
 		do {
 			if (username != null && username.contains(" "))
-				System.out.println("In Ihrem Benutzernamen darf kein Leerzeichen enthalten sein." +
-						           " Bitte geben Sie erneut ein:");
+				System.out.println("In Ihrem Benutzernamen darf kein Leerzeichen enthalten sein!" +
+						           " Bitte geben Sie erneut einen Benutzernamen ein:");
 			username = in.nextLine();
 		} while( username.isEmpty() || username.contains(" ") );
 		
@@ -58,7 +58,7 @@ public class client implements Runnable
 	 */
 	public void done()
 	{
-		// Zeugs um Thread zu stoppen
+		// Funktionen um Thread zu stoppen
 		Thread moribund = connect;
 		connect = null;
 		moribund.interrupt();
@@ -96,7 +96,7 @@ public class client implements Runnable
 	public static void main(String[] args)
 	{
 		if (args.length > 0) {
-		for ( int i = 0; i < args.length - 1; i++) { // -1 da zwei argumente vorhanden sein müssen: flag und option
+		for ( int i = 0; i < args.length - 1; i++) { // Die -1 kommt, da zwei Argumente vorhanden sein müssen: flag und option
 			if( args[i].equals("--port")) {
 				try {
 					port = Integer.parseInt(args[i+1]);
@@ -120,7 +120,7 @@ public class client implements Runnable
 	/**
 	 * 
 	 * @param text der zu übersetzende Text
-	 * @return übersetzer Text, oder leerer String, wenn nicht erfolgreich
+	 * @return übersetzter Text oder leerer String, wenn nicht erfolgreich
 	 */
 	private String translate(String text)
 	{
@@ -141,7 +141,7 @@ public class client implements Runnable
 			translatedText = Translate.execute(text, lang, Language.ENGLISH);
 			// FIXME Alles ins Englische übersetzen? bäää...
 		} catch (Exception e) {
-			System.err.println("Fehler bei Überstzung: " + e);
+			System.err.println("Fehler bei Übersetzung: " + e);
 		}
 		
 		return translatedText;
